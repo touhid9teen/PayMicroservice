@@ -1,6 +1,15 @@
-# Ignore virtual environments
-env/
-venv/
+# Ignore virtual environments for each service
+Auth_Service/env/
+SchedulingMiddleware/env/
+Service1/env/
+Transfer_Money_Service/env/
+# Add as many services as you have
+
+Auth_Service/venv/
+SchedulingMiddleware/venv/
+Service1/venv/
+Transfer_Money_Service/venv/
+# Add as many services as you have
 
 # Ignore compiled Python files
 *.pyc
@@ -14,6 +23,18 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Ignore specific directories or files
-service1/static/
-service2/logs/
+# Ignore specific directories or files for each service
+Auth_Service/static/
+SchedulingMiddleware/static/
+Service1/static/
+Transfer_Money_Service/static/
+# Add any other service-specific static or build directories you want to ignore
+
+# Ignore database files (if any)
+*.sqlite3
+db.sqlite3
+
+# Ignore Docker or other containerization files (optional, if used)
+docker-compose.yml
+Dockerfile
+*.log
