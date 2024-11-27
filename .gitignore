@@ -1,8 +1,8 @@
 # Ignore virtual environments for each service
-Auth_Service/env/
-SchedulingMiddleware/env/
-Service1/env/
-Transfer_Money_Service/env/
+Auth_Service/.env/
+SchedulingMiddleware/.env/
+Service1/.env/
+Transfer_Money_Service/.env/
 # Add as many services as you have
 
 Auth_Service/venv/
