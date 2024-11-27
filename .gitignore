@@ -1,0 +1,19 @@
+# Ignore virtual environments
+env/
+venv/
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore log files
+*.log
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore specific directories or files
+service1/static/
+service2/logs/
