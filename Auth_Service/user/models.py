@@ -14,10 +14,20 @@ class AuthUserManagement(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self,username, password):
-        user = self.create(username=username, password=password)
-        user.is_superuser = True
-        user.is_staff = True
+    def create_superuser(self, email, password=None, **extra_fields):
+        if not email:
+            raise ValueError("Email is not found!")
+        if not password:
+            raise ValueError("Password is required!")
+
+        email = self.normalize_email(email)
+        extra_fields.setdefault("is_superuser", True)
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("username", email.split('@')[0])  # Generate a username if not provided
+        extra_fields.setdefault("current_balance", 0.00)  # Default balance
+
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
         user.save(using=self._db)
         return user
 
@@ -32,7 +42,7 @@ class AuthUser(AbstractUser):
     objects = AuthUserManagement()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = []
 
 
 
