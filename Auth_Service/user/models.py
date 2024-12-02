@@ -32,17 +32,17 @@ class AuthUserManagement(BaseUserManager):
         return user
 
 
-class AuthUser(AbstractUser):
-    username = models.CharField(max_length=100,unique=True, null=True,blank=True)
-    email = models.EmailField(max_length=100, unique=True)
-    user_number = models.CharField(max_length=11,unique=True)
-    current_balance = models.DecimalField(max_digits=12,decimal_places=2)
-    password = models.CharField(max_length=100)
+    class AuthUser(AbstractUser):
+        username = models.CharField(max_length=100,unique=True, null=True,blank=True)
+        email = models.EmailField(max_length=100, unique=True)
+        user_number = models.CharField(max_length=11,unique=True)
+        current_balance = models.DecimalField(max_digits=12,decimal_places=2)
+        password = models.CharField(max_length=100)
 
-    objects = AuthUserManagement()
+        objects = AuthUserManagement()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+        USERNAME_FIELD = 'email'
+        REQUIRED_FIELDS = []
 
 
 
